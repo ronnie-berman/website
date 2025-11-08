@@ -1,24 +1,131 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Hello — Ronnie Berman</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <main class="container">
-    <h1>Hello, world!</h1>
-    <p class="lead">A minimal HTML + CSS example.</p>
-    <button id="toggle-theme" class="btn">Toggle theme</button>
-    <footer class="footer">Made with ♥ by ronnie-berman</footer>
-  </main>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>envilope.io | Debug your k8s environment locally</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="logo">envilope</div>
+      <button id="toggle-theme" class="btn btn-ghost" type="button">Toggle theme</button>
+    </header>
 
-  <script>
-    // Small interaction: toggle an alternate theme
-    document.getElementById('toggle-theme').addEventListener('click', function () {
-      document.documentElement.classList.toggle('alt-theme');
-    });
-  </script>
+    <main>
+      <section class="hero container" aria-labelledby="hero-title">
+        <p class="eyebrow">envilope.io | Debug your k8s environment locally</p>
+        <h1 id="hero-title">The fast, simple, and secure solution to k8s development.</h1>
+        <p class="lead">
+          Ready to go from the start &mdash; without any configuration or installations on the cluster.
+        </p>
+        <ul class="hero-points">
+          <li>Run the code in your IDE, get the breakpoint with the real traffic from your development namespace.</li>
+          <li>Break out of the CI dev loop, your changes are reflected on the cluster immediately.</li>
+          <li>
+            Forget the &ldquo;it works on my machine&rdquo;, the unreliable local-development mocks and hacks that let
+            your app break when pushed to the cluster after you waited for the CI cycle.
+          </li>
+        </ul>
+        <div class="cta-group">
+          <a class="btn" href="https://www.envilope.io" target="_blank" rel="noopener noreferrer">Watch the demo</a>
+          <a class="btn btn-secondary" href="https://www.envilope.io" target="_blank" rel="noopener noreferrer">Get early access</a>
+        </div>
+        <p class="support-note">*Supports Windows, Mac, Linux and WSL. Supports OpenShift.</p>
+      </section>
+
+      <section class="demo container" aria-labelledby="demo-title">
+        <div class="section-heading">
+          <h2 id="demo-title">Demo &mdash; Debug with the envilope flow</h2>
+          <a class="btn btn-outline" href="https://www.envilope.io" target="_blank" rel="noopener noreferrer">Schedule a demo</a>
+        </div>
+        <div class="demo-steps">
+          <article class="card">
+            <h3>Select a service</h3>
+            <p>The service will stop running in the cluster, and traffic will be diverted to the debugging host.</p>
+          </article>
+          <article class="card">
+            <h3>Run the service</h3>
+            <p>
+              You can do so in your IDE in debug mode, or whichever way you choose. Use the same port (8000 in this case).
+            </p>
+            <p>The events we are debugging are usually received by the event-receiver on the cluster, but here, it is handled by us.</p>
+          </article>
+          <article class="card">
+            <h3>Behind the scenes</h3>
+            <p>
+              In the cluster, the pods of the service you chose will be replaced by an <span class="accent">envilope</span> tunneling pod.
+              When done with debugging, the original deployment will be scaled back up.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="suite container" aria-labelledby="suite-title">
+        <h2 id="suite-title">Your own development suite</h2>
+        <p class="lead">
+          Keep working with all your beloved tools seamlessly integrated with our platform.
+        </p>
+        <p>
+          No need for extensive configuration &mdash; our solution ensures effortless compatibility,
+          so you can use tools like Postman, pgAdmin, and more, with your remote component and without interruption.
+        </p>
+      </section>
+
+      <section class="benefits container" aria-labelledby="benefits-title">
+        <h2 id="benefits-title">What teams get with envilope</h2>
+        <div class="benefits-grid">
+          <article class="card">
+            <h3>Test changes immediately</h3>
+            <p>
+              envilope allows you to see the changes to the code immediately, and only pass through the CI/CD pipeline when you&apos;ve satisfied with your changes.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Avoid mistakes</h3>
+            <p>
+              Collaboration has never been easier with envilope. Our Kubernetes product is designed to ensure that the whole team can use it without stepping on anyone&apos;s toes.
+              With our user-friendly interface, you can easily collaborate with your team members.
+            </p>
+          </article>
+          <article class="card">
+            <h3>1 minute setup</h3>
+            <p>
+              Getting started with envilope is quick and easy. With our simple installation process, you can be up and running in just 1 minute.
+              We rely on your existing kubeconfig file to simplify the setup process. Whether you&apos;re on Linux, Mac, Windows, or WSL, we&apos;ve got you covered.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="under-hood container" aria-labelledby="under-hood-title">
+        <h2 id="under-hood-title">Under the hood</h2>
+        <p>See the flow of the data: events are sent to the event-receiver service, which saves them to the database.</p>
+        <p>We want the flow to go through our computer, to solve the ongoing bug in the event-receiver.</p>
+        <p>
+          The event receiver stops running on the cluster, and an envilope tunneling pod is created in its place.
+          Now, when you run the event-receiver source code, you&apos;ll be handling the same data the service was handling on the cluster,
+          and saving to the same DB, utilizing the tunnels opened by envilope.
+        </p>
+      </section>
+
+      <section class="cta container" aria-labelledby="cta-title">
+        <h2 id="cta-title">Ready to get hands-on?</h2>
+        <p>Request early access and see envilope in action with your own workloads.</p>
+        <a class="btn" href="https://www.envilope.io" target="_blank" rel="noopener noreferrer">Request early access</a>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Request submitted · envilope.io</p>
+      <p>Made with ♥ by ronnie-berman</p>
+    </footer>
+
+    <script>
+      // Small interaction: toggle an alternate theme
+      document.getElementById('toggle-theme').addEventListener('click', function () {
+        document.documentElement.classList.toggle('alt-theme');
+      });
+    </script>
 </body>
 </html>
