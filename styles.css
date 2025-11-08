@@ -62,7 +62,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 4rem;
-  margin-top: 2rem;
+  margin-top: 7rem;
 }
 
 .container {
@@ -71,8 +71,10 @@ main {
 }
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   width: 100%;
   display: flex;
