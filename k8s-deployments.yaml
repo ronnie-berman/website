@@ -1,0 +1,421 @@
+---
+# User Authentication Service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-authentication-service
+  namespace: ronnie-dev
+  labels:
+    app: user-authentication-service
+    tier: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-authentication-service
+  template:
+    metadata:
+      labels:
+        app: user-authentication-service
+    spec:
+      containers:
+      - name: echo-server
+        image: ealen/echo-server:latest
+        ports:
+        - containerPort: 8001
+        env:
+        - name: PORT
+          value: "8001"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-authentication-service
+  namespace: ronnie-dev
+spec:
+  selector:
+    app: user-authentication-service
+  ports:
+  - protocol: TCP
+    port: 8001
+    targetPort: 8001
+  type: ClusterIP
+---
+# Payment Processing Gateway
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-processing-gateway
+  namespace: ronnie-dev
+  labels:
+    app: payment-processing-gateway
+    tier: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payment-processing-gateway
+  template:
+    metadata:
+      labels:
+        app: payment-processing-gateway
+    spec:
+      containers:
+      - name: echo-server
+        image: ealen/echo-server:latest
+        ports:
+        - containerPort: 8002
+        env:
+        - name: PORT
+          value: "8002"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-processing-gateway
+  namespace: ronnie-dev
+spec:
+  selector:
+    app: payment-processing-gateway
+  ports:
+  - protocol: TCP
+    port: 8002
+    targetPort: 8002
+  type: ClusterIP
+---
+# Order Management System
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-management-system
+  namespace: ronnie-dev
+  labels:
+    app: order-management-system
+    tier: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-management-system
+  template:
+    metadata:
+      labels:
+        app: order-management-system
+    spec:
+      containers:
+      - name: echo-server
+        image: ealen/echo-server:latest
+        ports:
+        - containerPort: 8003
+        env:
+        - name: PORT
+          value: "8003"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-management-system
+  namespace: ronnie-dev
+spec:
+  selector:
+    app: order-management-system
+  ports:
+  - protocol: TCP
+    port: 8003
+    targetPort: 8003
+  type: ClusterIP
+---
+# Inventory Management Service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory-management-service
+  namespace: ronnie-dev
+  labels:
+    app: inventory-management-service
+    tier: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inventory-management-service
+  template:
+    metadata:
+      labels:
+        app: inventory-management-service
+    spec:
+      containers:
+      - name: echo-server
+        image: ealen/echo-server:latest
+        ports:
+        - containerPort: 8004
+        env:
+        - name: PORT
+          value: "8004"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: inventory-management-service
+  namespace: ronnie-dev
+spec:
+  selector:
+    app: inventory-management-service
+  ports:
+  - protocol: TCP
+    port: 8004
+    targetPort: 8004
+  type: ClusterIP
+---
+# Notification Service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-service
+  namespace: ronnie-dev
+  labels:
+    app: notification-service
+    tier: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notification-service
+  template:
+    metadata:
+      labels:
+        app: notification-service
+    spec:
+      containers:
+      - name: echo-server
+        image: ealen/echo-server:latest
+        ports:
+        - containerPort: 8005
+        env:
+        - name: PORT
+          value: "8005"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: notification-service
+  namespace: ronnie-dev
+spec:
+  selector:
+    app: notification-service
+  ports:
+  - protocol: TCP
+    port: 8005
+    targetPort: 8005
+  type: ClusterIP
+---
+# Customer Data Platform
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-data-platform
+  namespace: ronnie-dev
+  labels:
+    app: customer-data-platform
+    tier: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: customer-data-platform
+  template:
+    metadata:
+      labels:
+        app: customer-data-platform
+    spec:
+      containers:
+      - name: echo-server
+        image: ealen/echo-server:latest
+        ports:
+        - containerPort: 8006
+        env:
+        - name: PORT
+          value: "8006"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: customer-data-platform
+  namespace: ronnie-dev
+spec:
+  selector:
+    app: customer-data-platform
+  ports:
+  - protocol: TCP
+    port: 8006
+    targetPort: 8006
+  type: ClusterIP
+---
+# Analytics Engine
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: analytics-engine
+  namespace: ronnie-dev
+  labels:
+    app: analytics-engine
+    tier: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: analytics-engine
+  template:
+    metadata:
+      labels:
+        app: analytics-engine
+    spec:
+      containers:
+      - name: echo-server
+        image: ealen/echo-server:latest
+        ports:
+        - containerPort: 8007
+        env:
+        - name: PORT
+          value: "8007"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: analytics-engine
+  namespace: ronnie-dev
+spec:
+  selector:
+    app: analytics-engine
+  ports:
+  - protocol: TCP
+    port: 8007
+    targetPort: 8007
+  type: ClusterIP
+---
+# API Gateway
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-gateway
+  namespace: ronnie-dev
+  labels:
+    app: api-gateway
+    tier: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-gateway
+  template:
+    metadata:
+      labels:
+        app: api-gateway
+    spec:
+      containers:
+      - name: echo-server
+        image: ealen/echo-server:latest
+        ports:
+        - containerPort: 8008
+        env:
+        - name: PORT
+          value: "8008"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-gateway
+  namespace: ronnie-dev
+spec:
+  selector:
+    app: api-gateway
+  ports:
+  - protocol: TCP
+    port: 8008
+    targetPort: 8008
+  type: ClusterIP
+---
+# Product Catalog Service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-catalog-service
+  namespace: ronnie-dev
+  labels:
+    app: product-catalog-service
+    tier: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: product-catalog-service
+  template:
+    metadata:
+      labels:
+        app: product-catalog-service
+    spec:
+      containers:
+      - name: echo-server
+        image: ealen/echo-server:latest
+        ports:
+        - containerPort: 8009
+        env:
+        - name: PORT
+          value: "8009"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-catalog-service
+  namespace: ronnie-dev
+spec:
+  selector:
+    app: product-catalog-service
+  ports:
+  - protocol: TCP
+    port: 8009
+    targetPort: 8009
+  type: ClusterIP
+---
+# Shipping and Fulfillment Service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shipping-fulfillment-service
+  namespace: ronnie-dev
+  labels:
+    app: shipping-fulfillment-service
+    tier: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shipping-fulfillment-service
+  template:
+    metadata:
+      labels:
+        app: shipping-fulfillment-service
+    spec:
+      containers:
+      - name: echo-server
+        image: ealen/echo-server:latest
+        ports:
+        - containerPort: 8010
+        env:
+        - name: PORT
+          value: "8010"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shipping-fulfillment-service
+  namespace: ronnie-dev
+spec:
+  selector:
+    app: shipping-fulfillment-service
+  ports:
+  - protocol: TCP
+    port: 8010
+    targetPort: 8010
+  type: ClusterIP
+

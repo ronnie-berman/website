@@ -1,131 +1,486 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>envilope.io | Debug your k8s environment locally</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metrophobic&family=Share+Tech&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-      <header class="site-header">
-        <div class="site-header__inner">
-          <div class="logo" aria-label="envilope">envilope</div>
-          <button class="hamburger" type="button" aria-label="Open navigation menu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
-      </header>
+    <!-- Animated background particles -->
+    <div class="particles-container">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
 
-    <main>
-      <section class="hero container" aria-labelledby="hero-title">
-          <p class="eyebrow">envilope.io | Debug your k8s environment locally</p>
-          <h1 id="hero-title">Build and debug on the envilope cloud.</h1>
-          <p class="lead">
-            envilope provides the developer tools and cloud infrastructure to build, scale, and secure a faster, more personalized Kubernetes experience.
-          </p>
-        <ul class="hero-points">
-          <li>Run the code in your IDE, get the breakpoint with the real traffic from your development namespace.</li>
-          <li>Break out of the CI dev loop, your changes are reflected on the cluster immediately.</li>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <div class="logo" aria-label="envilope">
+          <img class="logo-icon" src="logo.avif" alt="envilope logo" />
+        </div>
+        <button
+          class="hamburger"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <nav class="mobile-nav" aria-label="Main navigation">
+        <ul class="mobile-nav__list">
+          <li><a href="#demo">Demo</a></li>
+          <li><a href="#suite">Development Suite</a></li>
+          <li><a href="#benefits">Benefits</a></li>
           <li>
-            Forget the &ldquo;it works on my machine&rdquo;, the unreliable local-development mocks and hacks that let
-            your app break when pushed to the cluster after you waited for the CI cycle.
+            <a
+              href="https://www.envilope.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Get Early Access</a
+            >
           </li>
         </ul>
-        <div class="cta-group">
-          <a class="btn" href="https://www.envilope.io" target="_blank" rel="noopener noreferrer">Watch the demo</a>
-          <a class="btn btn-secondary" href="https://www.envilope.io" target="_blank" rel="noopener noreferrer">Get early access</a>
+      </nav>
+    </header>
+
+    <!-- Landing Page (shown when #/landing) -->
+    <div id="landing-page" class="landing-page hidden">
+      <div class="landing-container">
+        <div class="landing-hero">
+          <div class="landing-logo">
+            <img
+              class="landing-logo-icon"
+              src="logo.avif"
+              alt="envilope logo"
+            />
+          </div>
+          <p class="landing-tagline">
+            Debug your Kubernetes services locally with real cluster traffic
+          </p>
+          <div class="landing-cta-group">
+            <a
+              href="https://www.envilope.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="landing-btn landing-btn-primary"
+            >
+              Get Early Access
+            </a>
+            <a
+              href="#"
+              class="landing-btn landing-btn-secondary"
+              onclick="window.location.hash = ''; return false;"
+            >
+              View Full Site
+            </a>
+          </div>
         </div>
-        <p class="support-note">*Supports Windows, Mac, Linux and WSL. Supports OpenShift.</p>
+        <div class="landing-features">
+          <div class="landing-feature">
+            <div class="landing-feature-icon">⚡</div>
+            <h3>10x Faster</h3>
+            <p>Debug in minutes, not hours</p>
+          </div>
+          <div class="landing-feature">
+            <div class="landing-feature-icon">🎯</div>
+            <h3>Real Traffic</h3>
+            <p>Use actual cluster data</p>
+          </div>
+          <div class="landing-feature">
+            <div class="landing-feature-icon">🔧</div>
+            <h3>Local IDE</h3>
+            <p>Set breakpoints in your editor</p>
+          </div>
+          <div class="landing-feature">
+            <div class="landing-feature-icon">🚀</div>
+            <h3>Zero CI Wait</h3>
+            <p>Skip the deployment cycle</p>
+          </div>
+        </div>
+        <div class="landing-footer"></div>
+      </div>
+    </div>
+
+    <!-- Main Site Content (hidden when #/landing) -->
+    <main id="main-content">
+      <section
+        class="intro-section container fade-in"
+        aria-labelledby="intro-title"
+      >
+        <h2 id="intro-title" class="intro-title animate-slide-up">
+          The fast, simple, and secure solution to k8s development.
+        </h2>
       </section>
 
-      <section class="demo container" aria-labelledby="demo-title">
+      <div
+        class="container"
+        style="text-align: center; margin-bottom: clamp(3rem, 6vw, 5rem)"
+      >
+        <div
+          class="cta-group animate-slide-up"
+          style="animation-delay: 0.3s; justify-content: center"
+        >
+          <a
+            class="btn"
+            href="https://www.envilope.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Watch the demo</a
+          >
+          <a
+            class="btn btn-secondary"
+            href="https://www.envilope.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Get early access</a
+          >
+        </div>
+      </div>
+
+      <section class="hero-cards container">
+        <div class="hero-cards-grid">
+          <div
+            class="hero-card fade-in animate-slide-up"
+            style="animation-delay: 0.1s"
+          >
+            <h3 class="hero-card-title">
+              <i class="ph-bold ph-dna"></i> Real Traffic Debugging
+            </h3>
+            <p class="hero-card-text">
+              Run the code in your IDE, get the breakpoint with the real traffic
+              from your development namespace.
+            </p>
+          </div>
+          <div
+            class="hero-card fade-in animate-slide-up"
+            style="animation-delay: 0.2s"
+          >
+            <h3 class="hero-card-title">
+              <i class="ph-bold ph-lightning"></i> Instant Feedback
+            </h3>
+            <p class="hero-card-text">
+              Break out of the CI dev loop, your changes are reflected on the
+              cluster immediately.
+            </p>
+          </div>
+          <div
+            class="hero-card fade-in animate-slide-up"
+            style="animation-delay: 0.3s"
+          >
+            <h3 class="hero-card-title">
+              <i class="ph-bold ph-detective"></i> No More Mocks
+            </h3>
+            <p class="hero-card-text">
+              Forget the &ldquo;it works on my machine&rdquo;, the unreliable
+              local-development mocks and hacks that let your app break when
+              pushed to the cluster after you waited for the CI cycle.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="hero container fade-in" aria-labelledby="hero-title">
+        <p class="eyebrow animate-slide-up">
+          Debug your k8s environment locally
+        </p>
+        <h1
+          id="hero-title"
+          class="animate-slide-up"
+          style="animation-delay: 0.1s"
+        >
+          Build and debug on the envilope cloud.
+        </h1>
+        <p class="lead animate-slide-up" style="animation-delay: 0.2s">
+          envilope provides the developer tools and cloud infrastructure to
+          build, scale, and secure a faster, more personalized Kubernetes
+          experience.
+        </p>
+        <p class="support-note">
+          *Supports Windows, Mac, Linux and WSL. Supports OpenShift.
+        </p>
+      </section>
+
+      <section class="cut-to-chase container" aria-labelledby="chase-title">
+        <div class="chase-content">
+          <h2 id="chase-title">The Problem</h2>
+          <p class="chase-problem">
+            Your microservice works locally, but breaks in the cluster. You push
+            to CI, wait 10 minutes, deploy fails. Repeat. Hours wasted.
+          </p>
+        </div>
+        <div class="chase-divider">
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 5L20 35M20 35L30 25M20 35L10 25"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <div class="chase-content">
+          <h2>The Solution</h2>
+          <p class="chase-solution">
+            Debug your service <strong>locally</strong> with
+            <strong>real cluster traffic</strong>. Set breakpoints. See actual
+            data. Fix it in minutes, not hours.
+          </p>
+        </div>
+        <div class="chase-stats">
+          <div class="stat">
+            <div class="stat-value">10x</div>
+            <div class="stat-label">Faster debugging</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">0</div>
+            <div class="stat-label">CI cycles wasted</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Real environment</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="demo container" aria-labelledby="demo-title">
         <div class="section-heading">
           <h2 id="demo-title">Demo &mdash; Debug with the envilope flow</h2>
-          <a class="btn btn-outline" href="https://www.envilope.io" target="_blank" rel="noopener noreferrer">Schedule a demo</a>
+          <a
+            class="btn btn-outline"
+            href="https://www.envilope.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Schedule a demo</a
+          >
         </div>
         <div class="demo-steps">
           <article class="card">
             <h3>Select a service</h3>
-            <p>The service will stop running in the cluster, and traffic will be diverted to the debugging host.</p>
+            <p>
+              The service will stop running in the cluster, and traffic will be
+              diverted to the debugging host.
+            </p>
           </article>
           <article class="card">
             <h3>Run the service</h3>
             <p>
-              You can do so in your IDE in debug mode, or whichever way you choose. Use the same port (8000 in this case).
+              You can do so in your IDE in debug mode, or whichever way you
+              choose. Use the same port (8000 in this case).
             </p>
-            <p>The events we are debugging are usually received by the event-receiver on the cluster, but here, it is handled by us.</p>
+            <p>
+              The events we are debugging are usually received by the
+              event-receiver on the cluster, but here, it is handled by us.
+            </p>
           </article>
           <article class="card">
             <h3>Behind the scenes</h3>
             <p>
-              In the cluster, the pods of the service you chose will be replaced by an <span class="accent">envilope</span> tunneling pod.
-              When done with debugging, the original deployment will be scaled back up.
+              In the cluster, the pods of the service you chose will be replaced
+              by an <span class="accent">envilope</span> tunneling pod. When
+              done with debugging, the original deployment will be scaled back
+              up.
             </p>
           </article>
         </div>
       </section>
 
-      <section class="suite container" aria-labelledby="suite-title">
+      <section id="suite" class="suite container" aria-labelledby="suite-title">
         <h2 id="suite-title">Your own development suite</h2>
         <p class="lead">
-          Keep working with all your beloved tools seamlessly integrated with our platform.
+          Keep working with all your beloved tools seamlessly integrated with
+          our platform.
         </p>
         <p>
-          No need for extensive configuration &mdash; our solution ensures effortless compatibility,
-          so you can use tools like Postman, pgAdmin, and more, with your remote component and without interruption.
+          No need for extensive configuration &mdash; our solution ensures
+          effortless compatibility, so you can use tools like Postman, pgAdmin,
+          and more, with your remote component and without interruption.
         </p>
       </section>
 
-      <section class="benefits container" aria-labelledby="benefits-title">
+      <section
+        id="benefits"
+        class="benefits container"
+        aria-labelledby="benefits-title"
+      >
         <h2 id="benefits-title">What teams get with envilope</h2>
         <div class="benefits-grid">
           <article class="card">
             <h3>Test changes immediately</h3>
             <p>
-              envilope allows you to see the changes to the code immediately, and only pass through the CI/CD pipeline when you&apos;ve satisfied with your changes.
+              envilope allows you to see the changes to the code immediately,
+              and only pass through the CI/CD pipeline when you&apos;ve
+              satisfied with your changes.
             </p>
           </article>
           <article class="card">
             <h3>Avoid mistakes</h3>
             <p>
-              Collaboration has never been easier with envilope. Our Kubernetes product is designed to ensure that the whole team can use it without stepping on anyone&apos;s toes.
-              With our user-friendly interface, you can easily collaborate with your team members.
+              Collaboration has never been easier with envilope. Our Kubernetes
+              product is designed to ensure that the whole team can use it
+              without stepping on anyone&apos;s toes. With our user-friendly
+              interface, you can easily collaborate with your team members.
             </p>
           </article>
           <article class="card">
             <h3>1 minute setup</h3>
             <p>
-              Getting started with envilope is quick and easy. With our simple installation process, you can be up and running in just 1 minute.
-              We rely on your existing kubeconfig file to simplify the setup process. Whether you&apos;re on Linux, Mac, Windows, or WSL, we&apos;ve got you covered.
+              Getting started with envilope is quick and easy. With our simple
+              installation process, you can be up and running in just 1 minute.
+              We rely on your existing kubeconfig file to simplify the setup
+              process. Whether you&apos;re on Linux, Mac, Windows, or WSL,
+              we&apos;ve got you covered.
             </p>
           </article>
         </div>
       </section>
 
-      <section class="under-hood container" aria-labelledby="under-hood-title">
-        <h2 id="under-hood-title">Under the hood</h2>
-        <p>See the flow of the data: events are sent to the event-receiver service, which saves them to the database.</p>
-        <p>We want the flow to go through our computer, to solve the ongoing bug in the event-receiver.</p>
-        <p>
-          The event receiver stops running on the cluster, and an envilope tunneling pod is created in its place.
-          Now, when you run the event-receiver source code, you&apos;ll be handling the same data the service was handling on the cluster,
-          and saving to the same DB, utilizing the tunnels opened by envilope.
-        </p>
-      </section>
-
       <section class="cta container" aria-labelledby="cta-title">
         <h2 id="cta-title">Ready to get hands-on?</h2>
-        <p>Request early access and see envilope in action with your own workloads.</p>
-        <a class="btn" href="https://www.envilope.io" target="_blank" rel="noopener noreferrer">Request early access</a>
+        <p>
+          Request early access and see envilope in action with your own
+          workloads.
+        </p>
+        <a
+          class="btn"
+          href="https://www.envilope.io"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Request early access</a
+        >
       </section>
     </main>
 
-    <footer class="footer">
-      <p>Request submitted · envilope.io</p>
-      <p>Made with ♥ by ronnie-berman</p>
-    </footer>
+    <footer class="footer"></footer>
 
-</body>
+    <script>
+      // Hamburger menu functionality
+      const hamburger = document.querySelector(".hamburger");
+      const mobileNav = document.querySelector(".mobile-nav");
+      const body = document.body;
+
+      hamburger.addEventListener("click", () => {
+        const isOpen = hamburger.getAttribute("aria-expanded") === "true";
+
+        hamburger.setAttribute("aria-expanded", !isOpen);
+        hamburger.classList.toggle("is-active");
+        mobileNav.classList.toggle("is-open");
+        body.classList.toggle("nav-open");
+      });
+
+      // Close menu when clicking a link
+      const navLinks = mobileNav.querySelectorAll("a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.setAttribute("aria-expanded", "false");
+          hamburger.classList.remove("is-active");
+          mobileNav.classList.remove("is-open");
+          body.classList.remove("nav-open");
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
+          if (mobileNav.classList.contains("is-open")) {
+            hamburger.setAttribute("aria-expanded", "false");
+            hamburger.classList.remove("is-active");
+            mobileNav.classList.remove("is-open");
+            body.classList.remove("nav-open");
+          }
+        }
+      });
+
+      // Scroll reveal animation
+      const observerOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal");
+          }
+        });
+      }, observerOptions);
+
+      // Observe all sections except hero
+      const sections = document.querySelectorAll(
+        ".demo, .suite, .benefits, .cta, .card"
+      );
+      sections.forEach((section) => {
+        section.classList.add("reveal-hidden");
+        observer.observe(section);
+      });
+
+      // Landing page routing
+      const landingPage = document.getElementById("landing-page");
+      const mainContent = document.getElementById("main-content");
+      const siteHeader = document.querySelector(".site-header");
+
+      function handleRoute() {
+        const hash = window.location.hash;
+        if (hash === "#/landing") {
+          landingPage.classList.remove("hidden");
+          mainContent.classList.add("hidden");
+          if (siteHeader) siteHeader.classList.add("hidden");
+        } else {
+          landingPage.classList.add("hidden");
+          mainContent.classList.remove("hidden");
+          if (siteHeader) siteHeader.classList.remove("hidden");
+        }
+      }
+
+      // Initial route check
+      handleRoute();
+
+      // Listen for hash changes
+      window.addEventListener("hashchange", handleRoute);
+    </script>
+  </body>
 </html>
