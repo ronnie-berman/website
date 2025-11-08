@@ -7,10 +7,14 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="site-header">
-      <div class="logo">envilope</div>
-      <button id="toggle-theme" class="btn btn-ghost" type="button">Toggle theme</button>
-    </header>
+      <header class="site-header">
+        <div class="logo" aria-label="envilope">envilope</div>
+        <button class="hamburger" type="button" aria-label="Open navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </header>
 
     <main>
       <section class="hero container" aria-labelledby="hero-title">
@@ -121,11 +125,5 @@
       <p>Made with ♥ by ronnie-berman</p>
     </footer>
 
-    <script>
-      // Small interaction: toggle an alternate theme
-      document.getElementById('toggle-theme').addEventListener('click', function () {
-        document.documentElement.classList.toggle('alt-theme');
-      });
-    </script>
 </body>
 </html>
