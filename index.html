@@ -1,1 +1,24 @@
-hello
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hello — Ronnie Berman</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Hello, world!</h1>
+    <p class="lead">A minimal HTML + CSS example.</p>
+    <button id="toggle-theme" class="btn">Toggle theme</button>
+    <footer class="footer">Made with ♥ by ronnie-berman</footer>
+  </main>
+
+  <script>
+    // Small interaction: toggle an alternate theme
+    document.getElementById('toggle-theme').addEventListener('click', function () {
+      document.documentElement.classList.toggle('alt-theme');
+    });
+  </script>
+</body>
+</html>
